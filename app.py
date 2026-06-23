@@ -134,8 +134,9 @@ if st.sidebar.button("Bắt đầu thẩm định"):
     st.pyplot(fig)
 
     #Save record for query history
+    time = pd.Timestamp.now(tz = 'UTC').tz_convert('Asia/Ho_Chi_Minh')
     new_record = {
-        "Thời gian": pd.Timestamp.now().strftime('%H:%M:%S'),
+        "Thời gian": time.strftime('%H:%M:%S'),
         'Ngành nghề kinh doanh': input['Industry'],
         'Tỉnh/Thành phố': input['Province'],
         'Điểm tín dụng': credit_score,
